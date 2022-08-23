@@ -2,20 +2,20 @@
     "resources":
     [
         {
-            "resourceGroupName": "MyResourceGroup",
-            "accountName": "my-cosmos-account",
+            "resourceGroupName": "DE_RG_DEV_27403_DERMS",
+            "accountName": "azdermscosmosdev",
             "api": "sql",
-            "throughputType": "autoscale",
-            "resourceName": "database1",
+            "throughputType": "manual",
+            "resourceName": "site_performance_unique",
             "throughput": 4000
         },
         {
-            "resourceGroupName": "MyResourceGroup",
-            "accountName": "my-cosmos-account-2",
+            "resourceGroupName": "DE_RG_DEV_27403_DERMS",
+            "accountName": "azdermscosmosdev",
             "api": "sql",
             "throughputType": "manual",
-            "resourceName": "database2/container1",
-            "throughput": 400
+            "resourceName": "site_performance_daily",
+            "throughput": 800
         }
     ]
 }
