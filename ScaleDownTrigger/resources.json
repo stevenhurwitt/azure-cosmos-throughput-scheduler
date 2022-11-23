@@ -6,7 +6,7 @@
             "accountName": "azdermscosmosdev",
             "api": "sql",
             "throughputType": "manual",
-            "resourceName": "site_performance_unique",
+            "resourceName": "site_performance",
             "throughput": 2000
         },
         {
@@ -15,7 +15,31 @@
             "api": "sql",
             "throughputType": "manual",
             "resourceName": "site_performance_daily",
-            "throughput": 400
+            "throughput": 1000
+        },
+        {
+            "resourceGroupName": "DE_RG_DEV_27403_DERMS",
+            "accountName": "azdermscosmosdev",
+            "api": "sql",
+            "throughputType": "manual",
+            "resourceName": "perf_interval",
+            "throughput": 5000
+        },
+        {
+            "resourceGroupName": "DE_RG_DEV_27403_DERMS",
+            "accountName": "azdermscosmosdev",
+            "api": "sql",
+            "throughputType": "manual",
+            "resourceName": "channel",
+            "throughput": 500
+        },
+        {
+            "resourceGroupName": "DE_RG_DEV_27403_DERMS",
+            "accountName": "azdermscosmosdev",
+            "api": "sql",
+            "throughputType": "manual",
+            "resourceName": "system",
+            "throughput": 500
         }
     ]
 }
