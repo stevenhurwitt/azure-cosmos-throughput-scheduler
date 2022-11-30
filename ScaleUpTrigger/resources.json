@@ -23,7 +23,7 @@
             "api": "sql",
             "throughputType": "manual",
             "resourceName": "perf_interval",
-            "throughput": 5000
+            "throughput": 40000
         },
         {
             "resourceGroupName": "DE_RG_DEV_27403_DERMS",
