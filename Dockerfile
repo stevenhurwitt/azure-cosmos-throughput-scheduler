@@ -8,8 +8,10 @@ RUN apk update \
 COPY . /tmp
 WORKDIR /tmp
 
-RUN curl -L -o az-func.zip $TOOLS_URL \
+RUN curl --insecure -L -o az-func.zip $TOOLS_URL \
   && unzip -d /usr/local/bin/func az-func.zip \
   && rm -rf az-func.zip
 
-RUN func --version
+# RUN func --version
+# RUN az --version
+RUN bash
