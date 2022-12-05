@@ -41,4 +41,4 @@ ARG functionsVersion="4"
 # echo "Creating $functionApp"
 
 # --storage-account $storage
-RUN az functionapp create --name ${functionApp} --consumption-plan-location "${location}" --resource-group ${resourceGroup} --functions-version ${functionsVersion}
+RUN az functionapp create --name ${functionApp} --consumption-plan-location ${location} --resource-group ${resourceGroup} --functions-version ${functionsVersion}
