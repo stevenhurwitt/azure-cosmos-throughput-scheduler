@@ -8,13 +8,9 @@ RUN apk update \
 COPY . /tmp
 WORKDIR /tmp
 
-RUN curl --insecure -L -o az-func.zip $TOOLS_URL \
-  && unzip -d /usr/local/bin/func az-func.zip \
-  && rm -rf az-func.zip
-
-# RUN func/func --version
-# RUN az --version
-# RUN bash
+# RUN curl --insecure -L -o az-func.zip $TOOLS_URL \
+#   && unzip -d /usr/local/bin/func az-func.zip \
+#   && rm -rf az-func.zip
 
 # DE_RG_DEV_27403_DERMS
 
@@ -24,8 +20,9 @@ RUN curl --insecure -L -o az-func.zip $TOOLS_URL \
 ARG location="eastus"
 ARG resourceGroup="DE_RG_DEV_27403_DERMS"
 ARG tag="create-function-app-throughput"
-ARG storage=""
+ARG storage="azdermsstoragedev"
 ARG functionApp="azure-cosmos-throughput-scheduler-dev"
+ARG subscription="e7493688-cdc8-4c97-8bdc-71b096102a6b"
 ARG skuStorage="Standard_LRS"
 ARG functionsVersion="4"
 
@@ -35,10 +32,18 @@ ARG functionsVersion="4"
 
 # Create an Azure storage account in the resource group.
 # echo "Creating $storage"
-# az storage account create --name $storage --location "$location" --resource-group $resourceGroup --sku $skuStorage
+
+# RUN subscriptionId="$(az account list --query "[?isDefault].id" -o tsv)"
+RUN az login
+
+RUN az account set --subscription "${subscription}"
+
+# RUN az storage account create --name ${storage} --location ${location} --resource-group ${resourceGroup} --sku ${skuStorage}
 
 # Create a serverless function app in the resource group.
 # echo "Creating $functionApp"
 
-# --storage-account $storage
-RUN az functionapp create --name ${functionApp} --consumption-plan-location ${location} --resource-group ${resourceGroup} --functions-version ${functionsVersion}
+RUN az functionapp create --name ${functionApp} --storage-account ${storage} --consumption-plan-location ${location} --resource-group ${resourceGroup} --functions-version ${functionsVersion}
+
+# RUN az --version
+RUN bash
